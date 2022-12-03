@@ -1,9 +1,11 @@
 import 'package:ecommerce/core/class/statusRequest.dart';
 import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/functions/handlingDataController.dart';
+import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/data/datasource/remote/auth/login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 abstract class LoginController extends GetxController{
   login();
@@ -13,7 +15,9 @@ abstract class LoginController extends GetxController{
 
 class LoginControllerImp extends LoginController{
 
- LoginData loginData = LoginData(Get.find());
+ LoginData loginData = LoginData(Get.find()); 
+
+MyServices myServices = Get.find();
 
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
@@ -58,6 +62,15 @@ class LoginControllerImp extends LoginController{
      {
       if(response['status'] == "success")
       {
+        // data.addAll(response['data']);
+
+       myServices.sharedPreferences.setString("id", response['data']['id'].toString());
+       myServices.sharedPreferences.setString("name", response['data']['name'].toString());
+       myServices.sharedPreferences.setString("email", response['data']['email'].toString());
+       myServices.sharedPreferences.setString("phone", response['data']['phone_no'].toString());
+
+       myServices.sharedPreferences.setString("step", "2");
+
        Get.offNamed(AppRoute.homepage);
       }
       else{
@@ -92,6 +105,13 @@ class LoginControllerImp extends LoginController{
 
   @override
   void onInit() {
+    // send notification via firebase
+ 
+  //  FirebaseMessaging.instance.getToken().then((value)  {
+  //     print(value);
+  //     String? token = value;
+  //  });
+
     email    = TextEditingController();
     password = TextEditingController();
     super.onInit();
