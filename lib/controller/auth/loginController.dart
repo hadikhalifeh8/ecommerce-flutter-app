@@ -17,7 +17,7 @@ class LoginControllerImp extends LoginController{
 
  LoginData loginData = LoginData(Get.find()); 
 
-// MyServices myServices = Get.find();
+ MyServices myServices = Get.find();
 
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
@@ -64,12 +64,12 @@ class LoginControllerImp extends LoginController{
       {
         // data.addAll(response['data']);
 
-      //  myServices.sharedPreferences.setString("id", response['data']['id'].toString());
-      //  myServices.sharedPreferences.setString("name", response['data']['name'].toString());
-      //  myServices.sharedPreferences.setString("email", response['data']['email'].toString());
-      //  myServices.sharedPreferences.setString("phone", response['data']['phone_no'].toString());
+       myServices.sharedPreferences.setString("id", response['data']['id'].toString());
+       myServices.sharedPreferences.setString("name", response['data']['name'].toString());
+       myServices.sharedPreferences.setString("email", response['data']['email'].toString());
+       myServices.sharedPreferences.setString("phone", response['data']['phone_no'].toString());
 
-      //  myServices.sharedPreferences.setString("step", "2");
+       myServices.sharedPreferences.setString("step", "2");
 
        Get.offNamed(AppRoute.homepage);
       }
