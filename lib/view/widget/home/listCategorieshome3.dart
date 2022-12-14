@@ -1,4 +1,4 @@
-import 'package:ecommerce/controller/pages/homecontroller.dart';
+import 'package:ecommerce/controller/pages/home/homecontroller.dart';
 import 'package:ecommerce/core/constant/Color.dart';
 import 'package:ecommerce/data/model/categoriesmodel.dart';
 import 'package:ecommerce/linkapi.dart';
@@ -23,7 +23,9 @@ import 'package:get/get.dart';
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index){
          
-         return Categories(categoriesModel: CategoriesModel.fromJson(controller.categories[index]));
+         return Categories(
+          i: index, 
+          categoriesModel: CategoriesModel.fromJson(controller.categories[index]));
 
       //   return Column(
       //      children: [
@@ -48,17 +50,18 @@ import 'package:get/get.dart';
 
 //categories Model لحتى استخدم 
 
-class Categories extends StatelessWidget {
+class Categories extends GetView<HomeControllerImp> {
 
   final CategoriesModel categoriesModel;
+  final int? i;
 
-  const Categories({Key? key, required this.categoriesModel}) : super(key: key);
+  const Categories( {Key? key, required this.categoriesModel, required this.i,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return     InkWell(
       onTap: () {
-        
+        controller.goToItems(controller.categories, i!);
       },
       child: Column(
              children: [

@@ -1,10 +1,10 @@
  import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ecommerce/controller/pages/homecontroller.dart';
+import 'package:ecommerce/controller/pages/home/homecontroller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/core/constant/Color.dart';
 import 'package:ecommerce/linkapi.dart';
 import 'package:ecommerce/view/widget/home/customTitleitemhome4.dart';
-import 'package:ecommerce/view/widget/home/customappbar1.dart';
+import 'package:ecommerce/view/widget/customappbar1.dart';
 import 'package:ecommerce/view/widget/home/customcardhome2.dart';
 import 'package:ecommerce/view/widget/home/listCategorieshome3.dart';
 import 'package:ecommerce/view/widget/home/listItemshome5.dart';

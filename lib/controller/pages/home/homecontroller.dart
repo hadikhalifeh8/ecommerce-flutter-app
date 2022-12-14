@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/class/statusRequest.dart';
+import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/functions/handlingDataController.dart';
 import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/data/datasource/remote/home_data.dart';
@@ -7,6 +8,7 @@ import 'package:get/get.dart';
 abstract class HomeController extends GetxController{
 initialData();
 getdata();
+goToItems(List categories, int selectedCategory);
 }
 
 class HomeControllerImp extends HomeController{
@@ -63,5 +65,16 @@ username = myServices.sharedPreferences.getString("name"); // name: men login pa
       update(); // Refresh 
  
   }
+  
+  // categories container 
+  @override
+  goToItems(categories, selectedCategory) 
+   {
+     Get.toNamed(AppRoute.items, arguments: {
+       "categories" : categories,
+       "selectedCategory" : selectedCategory,
+   });
+  }
+  // categories container 
 
 }

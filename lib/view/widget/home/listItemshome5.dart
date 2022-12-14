@@ -1,4 +1,4 @@
-import 'package:ecommerce/controller/pages/homecontroller.dart';
+import 'package:ecommerce/controller/pages/home/homecontroller.dart';
 import 'package:ecommerce/data/model/itemsModel.dart';
 import 'package:ecommerce/linkapi.dart';
 import 'package:flutter/material.dart';

@@ -1,4 +1,4 @@
-import 'package:ecommerce/controller/pages/homeScreenconroller.dart';
+import 'package:ecommerce/controller/pages/home/homeScreenconroller.dart';
 import 'package:ecommerce/core/constant/Color.dart';
 import 'package:ecommerce/linkapi.dart';
 import 'package:ecommerce/view/widget/home/customButtonAppBarHome7.dart';

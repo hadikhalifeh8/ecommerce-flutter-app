@@ -1,4 +1,4 @@
-import 'package:ecommerce/controller/pages/homeScreenconroller.dart';
+import 'package:ecommerce/controller/pages/home/homeScreenconroller.dart';
 import 'package:ecommerce/view/widget/home/customButtonAppBar6.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
