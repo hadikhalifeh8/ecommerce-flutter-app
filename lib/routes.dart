@@ -11,7 +11,10 @@ import 'package:ecommerce/view/screen/auth/forgetPassword/succesResetPassword.da
 import 'package:ecommerce/view/screen/auth/forgetPassword/verifyCode.dart';
 import 'package:ecommerce/view/screen/auth/verifycodesignup.dart';
 import 'package:ecommerce/view/screen/home.dart';
+import 'package:ecommerce/view/screen/homescreen.dart';
+import 'package:ecommerce/view/screen/items.dart';
 import 'package:ecommerce/view/screen/language.dart';
+import 'package:ecommerce/view/widget/home/listItemshome5.dart';
 
 
 import 'package:get/get_navigation/src/routes/get_route.dart';
@@ -40,11 +43,10 @@ List<GetPage<dynamic>>? routes =[
   GetPage(name: AppRoute.onBoarding, page: () =>const OnBoarding()),
 
   // Home Page
-  GetPage(name: AppRoute.homepage, page: () =>const Home()),
+  // GetPage(name: AppRoute.homepage, page: () =>const Home()),
   
-
-
-  
+  GetPage(name: AppRoute.homepage, page: () =>const HomeScreen()),
+  GetPage(name: AppRoute.items, page: () => const Item_s()),
 
 
 ];
