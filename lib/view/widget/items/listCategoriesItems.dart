@@ -1,5 +1,6 @@
 import 'package:ecommerce/controller/pages/items/itemsController.dart';
 import 'package:ecommerce/core/constant/Color.dart';
+import 'package:ecommerce/core/functions/translateDatabase.dart';
 import 'package:ecommerce/data/model/categoriesmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -58,7 +59,9 @@ class Categories extends GetView<ItemsControllerImp> {
                     border: Border(bottom: BorderSide(width: 3, color: AppColor.primaryColor))
                   ): null,
                  
-                  child: Text("${categoriesModel.nameEn}", 
+                  child: 
+                  // Text("${categoriesModel.nameEn}", 
+                  Text("${translateDateBase(categoriesModel.nameAr, categoriesModel.nameEn)}",
                   style:const TextStyle(fontSize: 20.0, color: AppColor.grey2),),
                 ),)
 

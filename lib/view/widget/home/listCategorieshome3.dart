@@ -1,5 +1,6 @@
 import 'package:ecommerce/controller/pages/home/homecontroller.dart';
 import 'package:ecommerce/core/constant/Color.dart';
+import 'package:ecommerce/core/functions/translateDatabase.dart';
 import 'package:ecommerce/data/model/categoriesmodel.dart';
 import 'package:ecommerce/data/model/itemsModel.dart';
 import 'package:ecommerce/linkapi.dart';
@@ -62,7 +63,9 @@ class Categories extends GetView<HomeControllerImp> {
                 child: SvgPicture.network("${AppLink.imageCategories}/${categoriesModel.image}",color: AppColor.secoundColor,), // image.svg
         
                ),
-                Text("${categoriesModel.nameEn}", style:const TextStyle(fontSize: 13.0, color: Colors.black),),
+           //      Text("${categoriesModel.nameEn}", style:const TextStyle(fontSize: 13.0, color: Colors.black),),
+                   Text("${translateDateBase(categoriesModel.nameAr, categoriesModel.nameEn)}", style:const TextStyle(fontSize: 13.0, color: Colors.black),),
+             
              ],),
     );
   }

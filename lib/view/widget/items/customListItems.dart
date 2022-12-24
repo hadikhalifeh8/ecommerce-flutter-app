@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/core/constant/Color.dart';
+import 'package:ecommerce/core/functions/translateDatabase.dart';
 import 'package:ecommerce/data/model/itemsModel.dart';
 import 'package:ecommerce/linkapi.dart';
 import 'package:flutter/material.dart';
@@ -24,9 +25,9 @@ class CustomListItems extends StatelessWidget {
                         children: [
                         CachedNetworkImage(imageUrl: "${AppLink.imageItems}/${itemsModel.image!}",  height: 130,fit: BoxFit.fill,),
                        // SizedBox(height: 5,),
-                        Text(itemsModel.nameEn!, style: const TextStyle(color: AppColor.black, fontSize: 16.0, fontWeight: FontWeight.bold),),
+                        Text(translateDateBase(itemsModel.nameAr!, itemsModel.nameEn!), style: const TextStyle(color: AppColor.black, fontSize: 16.0, fontWeight: FontWeight.bold),),
 
-                        Text(itemsModel.categoryRltn!.nameEn!, textAlign: TextAlign.center,),
+                        Text(translateDateBase(itemsModel.categoryRltn!.nameAr!, itemsModel.categoryRltn!.nameEn!), textAlign: TextAlign.center,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [

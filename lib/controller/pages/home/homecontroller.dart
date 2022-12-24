@@ -9,6 +9,8 @@ abstract class HomeController extends GetxController{
 initialData();
 getdata();
 goToItems(List categories, int selectedCategory, String category_id); // latop / mobile ... 
+
+String? lang;
 }
 
 class HomeControllerImp extends HomeController{
@@ -32,6 +34,7 @@ String? categoryid;
   initialData(){
 // username = myServices.sharedPreferences.getString("name"); // name: men login page static msh men l database
 // categoryid = Get.arguments['email'];
+lang = myServices.sharedPreferences.getString("lang");
 }
 
 
