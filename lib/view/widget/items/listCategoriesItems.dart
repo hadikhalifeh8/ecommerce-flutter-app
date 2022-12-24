@@ -11,7 +11,7 @@ import 'package:get/get.dart';
   @override
   Widget build(BuildContext context) {
     return     // Container(height: 100, //container بدل  sizedbox  فيني استخدم 
-     SizedBox(height: 100,
+     SizedBox(height: 60,
        child: 
        // ListView.builder(
         ListView.separated( // separated:والتاني container  /  منفصل بين كل صوره والتانيه 
@@ -46,7 +46,7 @@ class Categories extends GetView<ItemsControllerImp> {
     return     InkWell(
       onTap: () {
    //     controller.goToItems(controller.categories, i!);
-   controller.changeSelectedCategory(i!);
+   controller.changeSelectedCategory(i!, categoriesModel.id.toString());
       },
       child: Column(
              children: [

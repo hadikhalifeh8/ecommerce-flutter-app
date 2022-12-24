@@ -7,11 +7,11 @@ class VerifyCodeSignUpData {
   VerifyCodeSignUpData(this.crud);
 
   postdata( String email, String verifycode ) async {  
-   var response = await crud.postData(AppLink.verifycodesignup, {     // loginWithOTP function
+   var response = await crud.postData(AppLink.verifycodesignup,{     // loginWithOTP function
 
             "email" : email,   
             "verify_code" : verifycode , 
-          
+           
    });
       return response.fold((l) => l, (r) => r);
   }

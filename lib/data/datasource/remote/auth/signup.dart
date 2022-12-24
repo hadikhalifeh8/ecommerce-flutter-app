@@ -8,7 +8,7 @@ class SignupData {
 
   postdata(String name, String email, String phoneno,String password ) async {
    // var response = await crud.postData(linkurl, {})
-   var response = await crud.postData(AppLink.signUp, { // data from backend(nafs l 2asma2)
+   var response = await crud.postData(AppLink.signUp,{ // data from backend(nafs l 2asma2)
 
             "name" : name,        // name from backend / php  :name from controller
             "email" : email , //   email from backend / php:email from controller

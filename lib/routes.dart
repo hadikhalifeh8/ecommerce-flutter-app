@@ -1,6 +1,5 @@
 import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/middleware/myMiddleware.dart';
-import 'package:ecommerce/test.dart';
 import 'package:ecommerce/view/screen/OnBoarding.dart';
 import 'package:ecommerce/view/screen/auth/SuccessSignUp.dart';
 import 'package:ecommerce/view/screen/auth/forgetPassword/forgetpassword.dart';
@@ -10,11 +9,10 @@ import 'package:ecommerce/view/screen/auth/signup.dart';
 import 'package:ecommerce/view/screen/auth/forgetPassword/succesResetPassword.dart';
 import 'package:ecommerce/view/screen/auth/forgetPassword/verifyCode.dart';
 import 'package:ecommerce/view/screen/auth/verifycodesignup.dart';
-import 'package:ecommerce/view/screen/home.dart';
 import 'package:ecommerce/view/screen/homescreen.dart';
 import 'package:ecommerce/view/screen/items.dart';
 import 'package:ecommerce/view/screen/language.dart';
-import 'package:ecommerce/view/widget/home/listItemshome5.dart';
+
 
 
 import 'package:get/get_navigation/src/routes/get_route.dart';

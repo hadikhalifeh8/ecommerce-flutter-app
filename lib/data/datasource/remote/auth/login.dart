@@ -8,8 +8,8 @@ class LoginData {
 
   postdata( String email, String password ) async {
    // var response = await crud.postData(linkurl, {})
-   var response = await crud.postData(AppLink.login, { // data from backend(nafs l 2asma2)
-
+   var response = await crud.postData(AppLink.login,{ // data from backend(nafs l 2asma2)
+   
             
             "email" : email , //   email from backend / php:email from controller
             "password" : password, // password from backend / php : password from controller

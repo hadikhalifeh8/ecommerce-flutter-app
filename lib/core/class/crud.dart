@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 
   class Crud{
 
-  Future<Either<StatusRequest, Map>> postData(String linkurl, Map data) async {
+  Future<Either<StatusRequest, Map>> postData(String linkurl ,Map data) async {
     
       try{
       if (await checkInternet()) {
@@ -24,7 +24,7 @@ import 'package:http/http.dart' as http;
         }
       } else {
         return const Left(StatusRequest.offlinefailure);
-      }
+      } 
      
   } catch(_){
      return const Left(StatusRequest.serverException);

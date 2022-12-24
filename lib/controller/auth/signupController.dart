@@ -71,7 +71,7 @@ class SignUpControllerImp extends SignUpController{
       Get.defaultDialog(title: "Warning ", middleText: "ph / ema @ alrady exists");
        statusRequest = StatusRequest.failure;
     }
-  }
+  } 
   
   @override
   goToLogin() {

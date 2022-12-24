@@ -16,32 +16,6 @@ import 'package:get/get.dart';
       scrollDirection: Axis.horizontal,
       itemBuilder: (context,index){
         return Items(itemsModel: ItemsModel.fromJson(controller.items[index]));
-
-    //     return Stack(children: [
-    //       Container(
-    //         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-    //         margin: EdgeInsets.symmetric(horizontal: 10.0),
-
-    //         child: Image.network("${AppLink.imageItems}/${controller.items[index]['image']}", 
-    //         height: 100.0,width: 150.0,fit: BoxFit.fill,),
-    //         ),
-
-    // ///shadow متل 
-    //         Container(
-    //           decoration: BoxDecoration(
-    //             color: Colors.black.withOpacity(0.3),
-    //             borderRadius: BorderRadius.circular(15.0)
-    //           ),
-              
-    //           height: 120.0,
-    //           width: 180.0,
-    //           ),
-
-    //           Positioned(left: 10.0,
-    //             child: 
-    //           Text("${controller.items[index]['name_en']}",style: const TextStyle(color: Colors.white, fontSize: 17.0, fontWeight: FontWeight.bold),))
-
-    //     ],);
       }
      ),
      

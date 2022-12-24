@@ -8,14 +8,15 @@ import 'package:get/get.dart';
 abstract class HomeController extends GetxController{
 initialData();
 getdata();
-goToItems(List categories, int selectedCategory);
+goToItems(List categories, int selectedCategory, String category_id); // latop / mobile ... 
 }
 
 class HomeControllerImp extends HomeController{
 
 MyServices myServices = Get.find();
 
-String? username;
+// String? username;
+String? categoryid;
 
   
   HomeData homeData = HomeData(Get.find());
@@ -29,7 +30,8 @@ String? username;
 
 @override
   initialData(){
-username = myServices.sharedPreferences.getString("name"); // name: men login page static msh men l database
+// username = myServices.sharedPreferences.getString("name"); // name: men login page static msh men l database
+// categoryid = Get.arguments['email'];
 }
 
 
@@ -68,12 +70,15 @@ username = myServices.sharedPreferences.getString("name"); // name: men login pa
   
   // categories container 
   @override
-  goToItems(categories, selectedCategory) 
-   {
+  goToItems(categories, selectedCategory, category_id) 
+   { 
      Get.toNamed(AppRoute.items, arguments: {
        "categories" : categories,
        "selectedCategory" : selectedCategory,
+       "catid" : category_id, // itemsController ببعتو لل  catid 
+      
    });
+  
   }
   // categories container 
 
