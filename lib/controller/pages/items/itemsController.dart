@@ -1,6 +1,7 @@
 import 'package:ecommerce/core/class/statusRequest.dart';
 import 'package:ecommerce/core/functions/handlingDataController.dart';
 import 'package:ecommerce/data/datasource/remote/item_data.dart';
+import 'package:ecommerce/data/model/itemsModel.dart';
 import 'package:ecommerce/linkapi.dart';
 import 'package:get/get.dart';
 
@@ -9,6 +10,8 @@ initialData();
 changeSelectedCategory(int val, String catval); //جديد item بس بدي  إختار
 
 getallitems(String category_id); // get items by category
+
+goToProductDetailsPage(ItemsModel itemsModel);
 
 }
 class ItemsControllerImp extends ItemsController {
@@ -71,5 +74,12 @@ String? catid; //  from homecontroller
       } 
      }
       update(); // Refresh 
+  }
+  
+  @override
+  goToProductDetailsPage(ItemsModel itemsModel) {
+  Get.toNamed('productDetails', arguments: {
+      'itemsModel' : itemsModel,
+  });
   }
 }

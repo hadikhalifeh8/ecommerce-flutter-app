@@ -17,5 +17,6 @@ class AppRoute{
  // items
  static const String  items= "/itemsbycaregory";
 
-
+ // Products Detials / itemsDetails
+ static const String  productDetails = "/productDetails"; 
 }

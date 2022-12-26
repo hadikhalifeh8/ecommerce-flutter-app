@@ -1,11 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommerce/controller/pages/items/itemsController.dart';
 import 'package:ecommerce/core/constant/Color.dart';
 import 'package:ecommerce/core/functions/translateDatabase.dart';
 import 'package:ecommerce/data/model/itemsModel.dart';
 import 'package:ecommerce/linkapi.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class CustomListItems extends StatelessWidget {
+class CustomListItems extends GetView<ItemsControllerImp> {
   final ItemsModel itemsModel;
   const CustomListItems({Key? key, required this.itemsModel}) : super(key: key);
 
@@ -13,6 +15,9 @@ class CustomListItems extends StatelessWidget {
   Widget build(BuildContext context) {
 
                      return InkWell(
+                     onTap: () {
+                       controller.goToProductDetailsPage(itemsModel);
+                     },
                       child: Card( 
                          //  أقسام /  مربعات
                 //      color: AppColor.primaryColor,
@@ -23,7 +28,15 @@ class CustomListItems extends StatelessWidget {
                              crossAxisAlignment: CrossAxisAlignment.center,
                   
                         children: [
-                        CachedNetworkImage(imageUrl: "${AppLink.imageItems}/${itemsModel.image!}",  height: 130,fit: BoxFit.fill,),
+
+// Hero : for animation 
+                        Hero(
+                           tag: "${itemsModel.id}",
+                          child: CachedNetworkImage(imageUrl: "${AppLink.imageItems}/${itemsModel.image!}",
+                            height: 130,fit: BoxFit.fill,
+                            ),
+                        ),
+
                        // SizedBox(height: 5,),
                         Text(translateDateBase(itemsModel.nameAr!, itemsModel.nameEn!), style: const TextStyle(color: AppColor.black, fontSize: 16.0, fontWeight: FontWeight.bold),),
 
