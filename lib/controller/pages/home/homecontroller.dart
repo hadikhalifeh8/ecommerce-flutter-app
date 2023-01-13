@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 abstract class HomeController extends GetxController{
 initialData();
 getdata();
-goToItems(List categories, int selectedCategory, String category_id); // latop / mobile ... 
+goToItems(List categories, int selectedCategory, String category_id); // latop / mobile ...  // by favorites
 
 String? lang;
 }
@@ -25,6 +25,7 @@ String? categoryid;
  // List data = [];
   List categories = [];
   List items = [];
+  // List favorites =[];
 
   
   late StatusRequest statusRequest;
@@ -79,6 +80,9 @@ lang = myServices.sharedPreferences.getString("lang");
        "categories" : categories,
        "selectedCategory" : selectedCategory,
        "catid" : category_id, // itemsController ببعتو لل  catid 
+       
+
+      
       
    });
   
@@ -86,3 +90,7 @@ lang = myServices.sharedPreferences.getString("lang");
   // categories container 
 
 }
+
+
+
+//alt+shift+f

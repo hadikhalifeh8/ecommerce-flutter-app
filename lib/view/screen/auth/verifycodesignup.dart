@@ -74,9 +74,11 @@ class VerifyCodeSignUp extends StatelessWidget {
         }, // end onSubmit
     ),
   //////// End  Verify Code
-
+   
+SizedBox(height: 20.0,),
             
-           
+           InkWell(onTap: () {controller.reSend(controller.email!);}, 
+           child: const Center(child: Text("Resend Verify Code", style: TextStyle(color: AppColor.primaryColor, fontSize: 20),)),)
           ],
         ),
       ),))

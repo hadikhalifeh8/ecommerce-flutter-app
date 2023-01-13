@@ -10,6 +10,7 @@ class ItemsModel {
   int? active;
   int? price;
   int? discount;
+  int? favorite;
   String? createdAt;
   String? updatedAt;
   CategoryRltn? categoryRltn;
@@ -26,6 +27,7 @@ class ItemsModel {
       this.active,
       this.price,
       this.discount,
+      this.favorite,
       this.createdAt,
       this.updatedAt,
       this.categoryRltn});
@@ -42,6 +44,7 @@ class ItemsModel {
     active = json['active'];
     price = json['price'];
     discount = json['discount'];
+    favorite = json['favorite'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     categoryRltn = json['category_rltn'] != null
@@ -62,6 +65,7 @@ class ItemsModel {
     data['active'] = this.active;
     data['price'] = this.price;
     data['discount'] = this.discount;
+    data['favorite'] = this.favorite;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
     if (this.categoryRltn != null) {

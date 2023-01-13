@@ -1,5 +1,7 @@
 import 'package:ecommerce/core/class/statusRequest.dart';
 import 'package:ecommerce/core/functions/handlingDataController.dart';
+import 'package:ecommerce/core/services/services.dart';
+import 'package:ecommerce/data/datasource/remote/favorite_data.dart';
 import 'package:ecommerce/data/datasource/remote/item_data.dart';
 import 'package:ecommerce/data/model/itemsModel.dart';
 import 'package:ecommerce/linkapi.dart';
@@ -18,14 +20,24 @@ class ItemsControllerImp extends ItemsController {
 
 ItemsData itemsData = ItemsData(Get.find());
 
+  // FavoriteData favoriteData = FavoriteData(Get.find());
+
+
+
+
  List categories = [];
  int? selectedCategory; //وبعلم على النوع اللي اخترتو items بيفتح صفحه ال  category  بس إكبس على أيا 
-String? catid; //  from homecontroller
+
+String? catid; //  ببعت from homecontroller
+String? itemid; //  ببعت from homecontroller
+
 
 
 
  List data = [];
  late StatusRequest statusRequest ;
+
+ MyServices myServices = Get.find();
 
 
 
@@ -42,14 +54,14 @@ String? catid; //  from homecontroller
     selectedCategory = Get.arguments['selectedCategory']; // homeController من صفحه ال
    
     catid = Get.arguments['catid']; //  homeController من صفحه ال 
-    getallitems(catid!);
+    getallitems(catid!);         // catid!, itemid!  homeController من صفحه ال 
   }
   
   @override
   changeSelectedCategory(val, catval) {
     selectedCategory = val;
     catid = catval ;
-    getallitems(catid!);
+    getallitems(catid!); 
     update();
   }
   
@@ -57,6 +69,7 @@ String? catid; //  from homecontroller
   getallitems(category_id) async{
     data.clear(); //القديم select لحتى يمحي ال 
                     statusRequest = StatusRequest.loading;  // 1- loading (badda wa2et)
+      //var response = await itemsData.getData(category_id ,myServices.sharedPreferences.getString("id")); //loading هون خلص 
       var response = await itemsData.getData(category_id); //loading هون خلص 
 
      print("***************##############************* Controler $response ");

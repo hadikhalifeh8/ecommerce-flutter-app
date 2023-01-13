@@ -1,8 +1,13 @@
+import 'package:ecommerce/controller/auth/verifycodesignupController.dart';
 import 'package:get/get.dart';
 
 class MyTranslation extends Translations {
+ 
+ 
   @override
   Map<String, Map<String, String>> get keys => {
+    
+
      
   //value و  key في بألبا   Map وكل  Map عندو  string  كل 
     
@@ -78,7 +83,7 @@ class MyTranslation extends Translations {
           "forget_pasword_txt": "Please Check a Message that Recieved to Your Email Address",
 
           "verification_code" : "Verification Code",
-          "verify_code_txt" : "Please Enter the Digital Code that Sent To hadikhaifeh94@gmail.com",
+          "verify_code_txt" : "Please Enter the Digital Code that Sent To hadikh@gmail.com",
           "check_code" : "Check Code",
           "reset_password" : "Reset Password",
           "new_password" : "New Password",

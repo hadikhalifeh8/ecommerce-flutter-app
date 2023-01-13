@@ -77,7 +77,7 @@ class SignUp extends StatelessWidget {
                 labeltext: "username_label_text".tr,
                 iconData: Icons.person_outline,
                 isNumber: false,
-
+ 
                 //  mycontroller: ,
               ),
               //////// End 1st textFormfeild

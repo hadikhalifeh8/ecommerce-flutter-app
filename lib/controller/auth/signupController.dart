@@ -58,18 +58,20 @@ class SignUpControllerImp extends SignUpController{
       if(response['status'] == "success")
       {
         // data.addAll(response['data']); // add بحط بس  register(api)بألب ال token عشان حاطط 
-        data.add(response['data']);
+        //data.add(response['data']);
+        Get.offNamed(AppRoute.verifycodesignup,  arguments:{"email": email.text} ); //verifycode لصفحة ال  email ببعت ال 
       }
       else{
+        Get.defaultDialog(title: "Warning ", middleText: " email @ alrady exists");
         statusRequest = StatusRequest.failure; // insert / update/ delete : لا يوجد تحديث / getdata : لا يوجد بيانات
-      }
+      } 
      } 
       update();
 
-      Get.offNamed(AppRoute.verifycodesignup,  arguments:{"email": email.text} ); //verifycode لصفحة ال  email ببعت ال 
+      //Get.offNamed(AppRoute.verifycodesignup,  arguments:{"email": email.text} ); //verifycode لصفحة ال  email ببعت ال 
     }else{
-      Get.defaultDialog(title: "Warning ", middleText: "ph / ema @ alrady exists");
-       statusRequest = StatusRequest.failure;
+      // Get.defaultDialog(title: "Warning ", middleText: "ph / ema @ alrady exists");
+      //  statusRequest = StatusRequest.failure;
     }
   } 
   
@@ -77,7 +79,6 @@ class SignUpControllerImp extends SignUpController{
   goToLogin() {
     Get.offNamed(AppRoute.login);
   }
-
 
   @override
   void onInit() {

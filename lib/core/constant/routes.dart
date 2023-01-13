@@ -19,4 +19,13 @@ class AppRoute{
 
  // Products Detials / itemsDetails
  static const String  productDetails = "/productDetails"; 
+
+  // Add Products to favorites / Add items to favorites
+ static const String  favorites = "/favoritesProduct";
+
+     // Favorite page
+ static const String  myfavorite = "/myfavorite";
+
+
 }
+

@@ -2,6 +2,7 @@
 import 'package:ecommerce/controller/pages/home/homecontroller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/core/constant/Color.dart';
+import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/linkapi.dart';
 import 'package:ecommerce/view/widget/home/customTitleitemhome4.dart';
 import 'package:ecommerce/view/widget/customappbar1.dart';
@@ -35,7 +36,13 @@ class Home extends StatelessWidget {
             children: [
 
               // start search and notification container (1)
-                CustomAppBar(titleappbar: "Find Product", onPressedIcon: (){}, onPressedSearch: (){},),
+                CustomAppBar(titleappbar: "Find Product", 
+                 onPressedIcon: (){},
+                 onPressedSearch: (){},
+                 onPressedIconFavorite: (){
+                  Get.toNamed(AppRoute.myfavorite);
+                  },
+                 ),
              // end  search and notification container  (1) 
 
      // start first box (Discount%) (2)

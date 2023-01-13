@@ -1,5 +1,7 @@
+import 'package:ecommerce/controller/pages/items/favoriteController.dart';
 import 'package:ecommerce/controller/pages/items/itemsController.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
+import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/data/model/itemsModel.dart';
 import 'package:ecommerce/view/widget/customappbar1.dart';
 import 'package:ecommerce/view/widget/items/customListItems.dart';
@@ -14,6 +16,8 @@ class Item_s extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    Get.put(ItemsControllerImp());
+  FavoriteController controllerFav  = Get.put(FavoriteController());
+
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.all(15.0),
@@ -26,7 +30,12 @@ class Item_s extends StatelessWidget {
         //  widget: 
          ListView(children: [
               
-                  CustomAppBar(titleappbar: "Find Product", onPressedIcon: (){}, onPressedSearch: (){},),
+                  CustomAppBar(titleappbar: "Find Product",
+                   onPressedIcon: (){},
+                   onPressedSearch: (){},
+                   onPressedIconFavorite: (){Get.toNamed(AppRoute.myfavorite);},
+                   ),
+                   
                  const SizedBox(height: 15.0,),
                  const ListCategoriesItems(),
  GetBuilder<ItemsControllerImp>(
@@ -44,7 +53,14 @@ class Item_s extends StatelessWidget {
                   
                   itemBuilder: (BuildContext context, index) {
 
-                      return  CustomListItems(itemsModel:ItemsModel.fromJson(controller.data[index]) );
+                      // key => id of items                    =  value = active(1) / notactive(0)
+  controllerFav.isFavorite[controller.data[index]['id']] = controller.data[index]['favorite'];
+
+                      return  CustomListItems(
+                                               // activefavorite: false,
+                                              // favoritesModel:FavoritesModel.fromJson(controller.data[index]),
+                                               itemsModel:ItemsModel.fromJson(controller.data[index]),
+                                      );
                          })))
       ]),
       )
