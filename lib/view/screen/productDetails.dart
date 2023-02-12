@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/controller/pages/home/productDetailscontroller.dart';
+import 'package:ecommerce/core/class/handlingdataview.dart';
+import 'package:ecommerce/core/class/statusRequest.dart';
 import 'package:ecommerce/core/constant/Color.dart';
 import 'package:ecommerce/core/functions/translateDatabase.dart';
 import 'package:ecommerce/linkapi.dart';
@@ -20,7 +22,8 @@ class ProductDetails extends StatelessWidget {
       
 
 ///////////////////////// Start bottomNavigationBar /////////////////////////////// 
-      bottomNavigationBar: Container(
+
+      bottomNavigationBar:  Container(
         alignment: Alignment.center,
         height: 50.0,
         margin: const EdgeInsets.all(10.0),
@@ -30,15 +33,20 @@ class ProductDetails extends StatelessWidget {
                          color: Colors.red,
                             borderRadius: BorderRadius.circular(20.0)),
 
-     child:  const Text("Add To Card", style:  TextStyle(color: Colors.white, fontWeight: FontWeight.bold), )
+     child:  MaterialButton(onPressed: (){
+            //controller.cartController.refreshPage();
+              controller.goToCartPage();
+     }, 
+        child: const Text("Go To Card", style:  TextStyle(color: Colors.white, fontWeight: FontWeight.bold), ),
+     )
       ),
+      
 ///////////////////////// End bottomNavigationBar /////////////////////////////// 
 
 
 
-      body: Container(
-        
-        
+      body: GetBuilder<ProductDetalsControllerImp>(builder: (controller) => HandlingDataView(statusRequest:controller.statusRequest ,
+       widget: Container(
         child: ListView(children: [
          
    /////////////////////////Start 1st Box ///////////////////////////////
@@ -64,7 +72,19 @@ class ProductDetails extends StatelessWidget {
      ////////////////// start price + / - //////////////////     
   const SizedBox(height: 10.0),
        
-       PriceAddMinus(onAdd: (){}, onMinus: (){}, price: "5000.0", count: "1"),
+       PriceAddMinus(
+        onAdd: (){
+        controller.addCartitems(controller.itemsModel.id.toString());
+        controller.addcounter();
+       }, 
+       onMinus: (){
+        controller.deleteCartitems(controller.itemsModel.id.toString());
+        controller.removecounter();
+
+       }, 
+       price: "${controller.itemsModel.price}", 
+       count: "${controller.countitems}"
+       ),
               
           
     ///////////////// End price + / - //////////////////  
@@ -136,7 +156,7 @@ class ProductDetails extends StatelessWidget {
 
           
         ],),
-      ),
+      ),))
 
     );
   }

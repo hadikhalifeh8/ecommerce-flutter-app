@@ -19,6 +19,10 @@ class AppImageAsset {
  static const String nodata= "$rootlottie/noData.json";
  static const String offline= "$rootlottie/offline.json";
 
+ // Avatar image in settings
+  static const String avatarImage = "$rootImages/avatar.png";
+
+
  
 
  

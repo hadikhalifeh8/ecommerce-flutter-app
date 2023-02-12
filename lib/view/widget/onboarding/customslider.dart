@@ -6,6 +6,7 @@ import 'package:lottie/lottie.dart';
 
 import '../../../data/datasource/static/static.dart';
 
+// GetView<OnBoardingControllerImp> :: Refresh for ui ( ... text بيتغير الصور وال )
 class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
   const CustomSliderOnBoarding({Key? key}) : super(key: key);
 

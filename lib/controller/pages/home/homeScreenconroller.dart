@@ -1,6 +1,8 @@
 
 import 'package:ecommerce/view/screen/home.dart';
+import 'package:ecommerce/view/screen/settings.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class HomeScreenconroller extends GetxController{
@@ -17,27 +19,27 @@ class HomeScreenconrollerImp extends HomeScreenconroller{
 List<Widget> listPage =[
  const Home(),
 
- Column(children: [
+ Column(children: const [
   Center(child: Text("Settings")),
  ],),
 
- Column(children: [
+ Column(children: const [
   Center(child: Text("profile")),
  ],),
 
- Column(children: [
-  Center(child: Text("favorite")),
- ],),
-
+ const Settings(),
 
 ];
 
 
-List listTitleBottomAppBar = [
-  "home",
-  "Settings",
-  "Profile",
-  "Favorite",
+List listBottomAppBar = [
+   // group of maps
+  { "title" : "home", "icon" : Icons.home,},
+  {"title" : "notifications", "icon" : Icons.notification_important_outlined,}, 
+  {"title" : "profile", "icon" : Icons.person_pin_sharp,},
+  {"title" : "setting", "icon" : Icons.settings,}
+
+
 ];
 
   @override

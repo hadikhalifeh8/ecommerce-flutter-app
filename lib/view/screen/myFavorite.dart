@@ -22,7 +22,7 @@ class MyFavorite extends StatelessWidget {
                 ListView(children: [
          // start search and notification container (1)
                 CustomAppBar(titleappbar: "Find Product", 
-                 onPressedIcon: (){},
+              //   onPressedIcon: (){},
                  onPressedSearch: (){},
                  onPressedIconFavorite: (){ Get.toNamed(AppRoute.myfavorite); },
                  ),

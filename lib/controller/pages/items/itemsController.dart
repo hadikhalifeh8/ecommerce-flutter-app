@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/class/statusRequest.dart';
+import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/functions/handlingDataController.dart';
 import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/data/datasource/remote/favorite_data.dart';
@@ -14,6 +15,8 @@ changeSelectedCategory(int val, String catval); //جديد item بس بدي  إ�
 getallitems(String category_id); // get items by category
 
 goToProductDetailsPage(ItemsModel itemsModel);
+
+
 
 }
 class ItemsControllerImp extends ItemsController {
@@ -95,4 +98,9 @@ String? itemid; //  ببعت from homecontroller
       'itemsModel' : itemsModel,
   });
   }
+  
+ 
+
+
+
 }

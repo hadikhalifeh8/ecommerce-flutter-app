@@ -47,6 +47,20 @@ class AppLink {
       static  String myfavorite = "http://comm-app.local/api/myfavorite";
       static  String deletemyfavorite = "http://comm-app.local/api/deletemyfavorite";
 
+
+
+     //==============================  ADD TO CART  ================================== // 
+      static  String addcart = "http://comm-app.local/api/addtocart";
+      static  String deletecart = "http://comm-app.local/api/deletecart";
+      static  String getItemsCountCart = "http://comm-app.local/api/getItemsCount";
+      static  String viewCartpage = "http://comm-app.local/api/cartView";
+
+
+ 
+
+
+
+
          
 
 

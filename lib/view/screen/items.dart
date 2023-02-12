@@ -31,7 +31,7 @@ class Item_s extends StatelessWidget {
          ListView(children: [
               
                   CustomAppBar(titleappbar: "Find Product",
-                   onPressedIcon: (){},
+                //   onPressedIcon: (){},
                    onPressedSearch: (){},
                    onPressedIconFavorite: (){Get.toNamed(AppRoute.myfavorite);},
                    ),
