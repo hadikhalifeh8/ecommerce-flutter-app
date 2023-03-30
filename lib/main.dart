@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
      //  initialBinding: MyBinding(),
        initialBinding: InitialBindings(),
     //  routes: routes,
-    getPages: routes,
+      getPages: routes,
 
 
     );

@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:ecommerce/core/constant/Color.dart';
 
 ThemeData themeEnglish = ThemeData(
+  
+  //ِApp على مستوى كل ال 
+  floatingActionButtonTheme: const FloatingActionButtonThemeData(backgroundColor: AppColor.primaryColor,),
+  appBarTheme: const AppBarTheme(color:AppColor.primaryColor), 
+      //ِApp على مستوى كل ال 
+
         fontFamily: "PlayfairDisplay",
         textTheme: const TextTheme(
           headline1:  TextStyle(

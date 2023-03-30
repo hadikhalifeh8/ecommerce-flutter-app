@@ -14,4 +14,30 @@ class AppRoute{
 //  Home Page
  static const String  homepage= "/homePage";
 
+ // items
+ static const String  items= "/itemsbycaregory";
+
+ // Products Detials / itemsDetails
+ static const String  productDetails = "/productDetails"; 
+
+  // Add Products to favorites / Add items to favorites
+ static const String  favorites = "/favoritesProduct";
+
+     // Favorite page
+ static const String  myfavorite = "/myfavorite";
+
+
+      // cart page
+ static const String  mycart = "/mycart";
+
+       // addressView page
+ static const String  addressView = "/viewAddress";
+ static const String  addressadd = "/addAddress";
+ static const String  addressaddpart2 = "/addressaddpart2";
+
+
+
+
+
 }
+

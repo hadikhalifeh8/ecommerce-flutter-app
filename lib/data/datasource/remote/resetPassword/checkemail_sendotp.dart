@@ -8,7 +8,7 @@ class CheckEmailData {
 
   postdata( String email ) async {
    
-   var response = await crud.postData(AppLink.checkemail, { 
+   var response = await crud.postData(AppLink.checkemail,{ 
 
             
             "email" : email , //   email from backend / php:email from controller

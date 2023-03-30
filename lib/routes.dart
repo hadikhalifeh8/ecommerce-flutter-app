@@ -1,6 +1,9 @@
 import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/middleware/myMiddleware.dart';
 import 'package:ecommerce/test.dart';
+import 'package:ecommerce/view/address/add.dart';
+import 'package:ecommerce/view/address/addpart2-Details.dart';
+import 'package:ecommerce/view/address/view.dart';
 import 'package:ecommerce/view/screen/OnBoarding.dart';
 import 'package:ecommerce/view/screen/auth/SuccessSignUp.dart';
 import 'package:ecommerce/view/screen/auth/forgetPassword/forgetpassword.dart';
@@ -10,8 +13,14 @@ import 'package:ecommerce/view/screen/auth/signup.dart';
 import 'package:ecommerce/view/screen/auth/forgetPassword/succesResetPassword.dart';
 import 'package:ecommerce/view/screen/auth/forgetPassword/verifyCode.dart';
 import 'package:ecommerce/view/screen/auth/verifycodesignup.dart';
-import 'package:ecommerce/view/screen/home.dart';
+import 'package:ecommerce/view/screen/cart.dart';
+import 'package:ecommerce/view/screen/homescreen.dart';
+import 'package:ecommerce/view/screen/items.dart';
 import 'package:ecommerce/view/screen/language.dart';
+import 'package:ecommerce/view/screen/myFavorite.dart';
+import 'package:ecommerce/view/screen/productDetails.dart';
+
+
 
 
 import 'package:get/get_navigation/src/routes/get_route.dart';
@@ -21,8 +30,8 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 
 List<GetPage<dynamic>>? routes =[
 
-   GetPage(name: "/", page: () =>const Language(), middlewares: [MyMiddleware() ]),
-  // GetPage(name: "/", page: () => Test()),
+     GetPage(name: "/", page: () =>const Language(), middlewares: [MyMiddleware() ]),
+   // GetPage(name: "/", page: () =>const Cart()),
 
  // GetPage(name: "/", page: () => const TestDataView()),
 
@@ -40,11 +49,29 @@ List<GetPage<dynamic>>? routes =[
   GetPage(name: AppRoute.onBoarding, page: () =>const OnBoarding()),
 
   // Home Page
-  GetPage(name: AppRoute.homepage, page: () =>const Home()),
+  // GetPage(name: AppRoute.homepage, page: () =>const Home()),
   
+  GetPage(name: AppRoute.homepage, page: () =>const HomeScreen()),
+  GetPage(name: AppRoute.items, page: () => const Item_s()),
+
+// Products Detail
+ GetPage(name: AppRoute.productDetails, page: () => const ProductDetails()), //itemsDetails
+
+ // Favorites Page
+ GetPage(name: AppRoute.myfavorite, page: () => const MyFavorite()), 
+
+  // Cart Page
+ GetPage(name: AppRoute.mycart, page: () => const Cart()), 
 
 
-  
+   // address pages
+ GetPage(name: AppRoute.addressView, page: () => const AddressView()), 
+ GetPage(name: AppRoute.addressadd, page: () => const AddressAdd()), 
+ GetPage(name: AppRoute.addressaddpart2, page: () => const AddressAddPart2_Details()), 
+
+
+
+   
 
 
 ];

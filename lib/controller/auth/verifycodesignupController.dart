@@ -47,8 +47,15 @@ StatusRequest statusRequest = StatusRequest.none;
      } 
       update();
 
-      
     }
+/** resend verify code */
+
+    reSend(String email){
+             verifycodesignUpdata.resendVerifyCodeData(email);
+    }
+
+/** resend verify code */
+
     
   @override
   void onInit() {

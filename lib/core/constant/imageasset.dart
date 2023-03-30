@@ -12,12 +12,20 @@ class AppImageAsset {
   static const String onBoarding1 = "$rootImages/onBoarding1.json";
   static const String onBoarding2 = "$rootImages/onBoarding2.json";
   static const String onBoarding3 = "$rootImages/onBoarding3.json";
+
+  static const String offer = "$rootImages/offer.png";
+
+
  // static const String onBoardingImageFour = "$rootImages/onboardingfour.PNG";
 
  static const String loading= "$rootlottie/loading.json";
  static const String error404= "$rootlottie/404_Error.json";
  static const String nodata= "$rootlottie/noData.json";
  static const String offline= "$rootlottie/offline.json";
+
+ // Avatar image in settings
+  static const String avatarImage = "$rootImages/avatar.png";
+
 
  
 

@@ -1,6 +1,5 @@
 import 'package:ecommerce/controller/auth/signupController.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
-import 'package:ecommerce/core/class/statusRequest.dart';
 import 'package:ecommerce/core/constant/Color.dart';
 import 'package:ecommerce/core/functions/alertexitapp.dart';
 import 'package:ecommerce/core/functions/validinput.dart';
@@ -77,7 +76,7 @@ class SignUp extends StatelessWidget {
                 labeltext: "username_label_text".tr,
                 iconData: Icons.person_outline,
                 isNumber: false,
-
+ 
                 //  mycontroller: ,
               ),
               //////// End 1st textFormfeild
