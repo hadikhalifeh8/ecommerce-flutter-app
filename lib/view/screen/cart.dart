@@ -3,7 +3,7 @@ import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/core/class/statusRequest.dart';
 import 'package:ecommerce/core/constant/Color.dart';
 import 'package:ecommerce/core/constant/imageasset.dart';
-import 'package:ecommerce/view/widget/Cart/cartbutton.dart';
+import 'package:ecommerce/view/widget/Cart/custombuttonCart.dart';
 import 'package:ecommerce/view/widget/Cart/customCartItemsList3.dart';
 import 'package:ecommerce/view/widget/Cart/custom_Buttom_NavigationBar_Cart4.dart';
 import 'package:ecommerce/view/widget/Cart/topAppBarCart1.dart';
@@ -19,9 +19,23 @@ class Cart extends StatelessWidget {
     CartController cartcontroller =  Get.put(CartController());
 
     return Scaffold(
+      appBar: AppBar( // in theme  / ThemeData
+       
+        title: Text("My Cart"),
+      
+        ),
   //  bottomNavigationBar:  CustomButtomNavigationBarCart(price: "1800", shipping: "1200", totalprice: "2200"),
 
-    bottomNavigationBar:GetBuilder<CartController>(builder: (cartcontroller)=>  CustomButtomNavigationBarCart(price: "${cartcontroller.totalSumOfPrice}", shipping: "1200", totalprice: cartcontroller.totalSumOfPrice)),
+    bottomNavigationBar:GetBuilder<CartController>(builder: (controller)=>
+               CustomButtomNavigationBarCart(price: "${controller.totalSumOfPrice}",
+                           discount: '${cartcontroller.discountCoupon}', 
+                            //totalprice: controller.totalSumOfPrice, 
+                           totalprice: controller.getTotalPrice(), 
+                           shipping: "500",
+                           controllerCoupon: controller.controllertCoupon! ,
+                           onApplyCoupon: (){controller.checkCoupon();},
+                           
+                           )),
 
     
 
@@ -29,7 +43,7 @@ class Cart extends StatelessWidget {
        widget: ListView(
         children:  [
     
-    const TopAppBarCart(title: "My Cart"),
+    // const TopAppBarCart(title: "My Cart"),
 
      const SizedBox(height: 5,),
    
@@ -71,6 +85,7 @@ class Cart extends StatelessWidget {
 
 
       ]
+      
       ,),)));
     
   }

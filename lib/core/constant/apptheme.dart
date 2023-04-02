@@ -5,7 +5,24 @@ ThemeData themeEnglish = ThemeData(
   
   //ِApp على مستوى كل ال 
   floatingActionButtonTheme: const FloatingActionButtonThemeData(backgroundColor: AppColor.primaryColor,),
-  appBarTheme: const AppBarTheme(color:AppColor.primaryColor), 
+  appBarTheme: const AppBarTheme(
+
+                 
+                  centerTitle: true,
+                  elevation: 0.0,
+                   iconTheme: IconThemeData(color: AppColor.primaryColor),
+                   
+                   titleTextStyle: TextStyle(
+                              color:AppColor.primaryColor,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25.0
+                   ),
+
+        backgroundColor: Colors.white12,
+  
+  
+  
+  ), 
       //ِApp على مستوى كل ال 
 
         fontFamily: "PlayfairDisplay",

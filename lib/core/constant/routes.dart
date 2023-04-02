@@ -37,6 +37,12 @@ class AppRoute{
 
 
 
+           // check Out page
+ static const String  checkout = "/checkout";
+
+
+
+
 
 
 }

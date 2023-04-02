@@ -1,8 +1,12 @@
+import 'dart:math';
+
 import 'package:ecommerce/core/class/statusRequest.dart';
+import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/functions/handlingDataController.dart';
 import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/data/datasource/remote/cart_data.dart';
 import 'package:ecommerce/data/model/cartmodel.dart';
+import 'package:ecommerce/data/model/couponModel.dart';
 import 'package:ecommerce/data/model/itemsModel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,6 +16,11 @@ import 'package:get/get.dart';
 
 class CartController extends GetxController
 {
+
+  TextEditingController? controllertCoupon; 
+   CouponModel? couponModel;
+   int? discountCoupon = 0; //discountCoupon متغير 
+   String? couponName;     // nameCoupon متغير 
 
 
 CartData cartData = CartData(Get.find());
@@ -26,6 +35,10 @@ MyServices myServices = Get.find();
 
 //*************To Cart Page Only (View Cart Page)******************************** */
 List<CartModel> data = [];
+
+// List<CouponModel> dataCoupon = [];
+
+
 
 // barrat list [data]
 double totalSumOfPrice = 0.0;
@@ -200,9 +213,58 @@ deleteCart(String itemsid) async {
 //      }
 // }
 
-late String itemsid;
+  checkCoupon() async
+  {
+        statusRequest = StatusRequest.loading;  // 1- loading (badda wa2et)
+          update();
+      
+      var response = await cartData.checkCoupon(controllertCoupon!.text); //loading هون خلص 
+
+     print("***************##############************* Controler $response ");
+    
+     statusRequest = handlingData(response); // get data / or stausRquest (success /serverfailure / connection  failed ... /) 
+
+     if(StatusRequest.success == statusRequest)
+     {
+      //start backend
+      if(response['status'] == "success")
+      {
+  
+       Map<String, dynamic> dataCoupon = response['MapData'] ; // get the map
+      couponModel = CouponModel.fromJson(dataCoupon);
+      
+      discountCoupon = int.parse(couponModel!.discount.toString());
+       couponName = couponModel!.name.toString();
+
+      }
+      else{ //failure ما في داعي ترجع  
+        // statusRequest = StatusRequest.failure; // insert / update/ delete : لا يوجد تحديث / getdata : لا يوجد بيانات
+      discountCoupon =0;
+      couponName = null;
+      
+      } 
+      // endbakend
+     }
+     update();
+  }
+
+  // get the total price with discountCoupon / shipping ...
+  getTotalPrice()
+  {
+    return totalSumOfPrice - (totalSumOfPrice*discountCoupon! / 100);
+  }
+
+
+
+
+
+
+
+
+// late String itemsid;
 @override
   void onInit() {
+    controllertCoupon = TextEditingController();
      viewcart();
     super.onInit();
   }
