@@ -5,21 +5,46 @@ import 'package:ecommerce/data/datasource/remote/address_data.dart';
 import 'package:ecommerce/data/model/addressModel.dart';
 import 'package:get/get.dart';
 
-class ViewAddressController extends GetxController{ 
+class CheckOutController extends GetxController{
+
+  AddressData addressData = AddressData(Get.find());
+ MyServices myServices = Get.find();
+ List<AddressModel> dataAddress = []; //data اللي بعبي فيها ال 
 
 
-AddressData addressData = AddressData(Get.find());
-MyServices myServices = Get.find();
 
 
-  // List data = [];
-  List<AddressModel> data = [];
+  StatusRequest statusRequest  = StatusRequest.none;
 
-  late StatusRequest statusRequest;
+  String? paymentMethod;
+  String? deliveryType;
+  String? addressid;
 
-     getData() async {
-    
-     statusRequest = StatusRequest.loading;  // 1- loading (badda wa2et)
+
+
+  choosePaymentMethod(String val)
+  {
+    paymentMethod = val;
+    update();
+  }
+
+
+  chooseDeliveryType(String val)
+  {
+     deliveryType = val;
+    update();
+  }
+
+
+  chooseShippingAddress(String val)
+  {
+     addressid = val;
+    update();
+  }
+
+
+  getShippingAddress() async{
+         statusRequest = StatusRequest.loading;  // 1- loading (badda wa2et)
      var response = await addressData.getData(myServices.sharedPreferences.getString("id")!); //loading هون خلص 
 
      print("***************##############************* Controler $response ");
@@ -31,9 +56,9 @@ MyServices myServices = Get.find();
       {
          // data.addAll(response['data']);
 
-         List listdata = response['data'];
-         data.addAll(listdata.map((e) => AddressModel.fromJson(e)));
-         if(data.isEmpty){
+         List listdata = response['data']; // get the data 
+         dataAddress.addAll(listdata.map((e) => AddressModel.fromJson(e))); //data اللي بعبي فيها ال 
+         if(dataAddress.isEmpty){
       statusRequest = StatusRequest.failure;
       }
       }
@@ -42,32 +67,12 @@ MyServices myServices = Get.find();
       }
      }
      
-      update(); // Refresh 
-   }
-
-
-
-   deleteAddress(String addressid)
-   {
-    
-      addressData.DeleteData(addressid);
-      data.removeWhere((element) => element.id.toString() == addressid.toString());
-      update();
-
-   }
-
-
-
-
-
-
-
-
-
-//function أول ما يفتح الصفحه تشتغل ال 
-   @override
+      update(); // Refresh
+  }
+  @override
   void onInit() {
-    getData();
+    getShippingAddress();
     super.onInit();
   }
+
 }

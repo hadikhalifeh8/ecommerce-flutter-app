@@ -6,7 +6,8 @@ class CustomButtonCoupon extends StatelessWidget {
     final String textbuttonName ;
   final void Function()? onPressed;
 
-  const CustomButtonCoupon({Key? key, required this.textbuttonName, this.onPressed}) 
+
+  const CustomButtonCoupon({Key? key, required this.textbuttonName, this.onPressed, }) 
        : super(key: key);
 
   @override

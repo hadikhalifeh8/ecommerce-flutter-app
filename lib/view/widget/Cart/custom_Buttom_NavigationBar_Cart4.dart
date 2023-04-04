@@ -12,11 +12,13 @@ class CustomButtomNavigationBarCart extends StatelessWidget {
   final String discount;
   final double totalprice; 
   final String shipping;
+  
+  
 
   final TextEditingController controllerCoupon;
   final void Function()? onApplyCoupon;
   
-  const CustomButtomNavigationBarCart({Key? key, required this.price, required this.discount, required this.totalprice, required this.controllerCoupon, required this.onApplyCoupon, required this.shipping, }) : super(key: key);
+  const CustomButtomNavigationBarCart({Key? key, required this.price, required this.discount, required this.totalprice, required this.controllerCoupon, required this.onApplyCoupon, required this.shipping,  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +40,10 @@ class CustomButtomNavigationBarCart extends StatelessWidget {
             child: Row(children: [
             Expanded(flex: 1,
                    child: TextFormField(
+                   
+                    
+
+                   
 
                     controller: controllerCoupon,
                   

@@ -83,7 +83,7 @@ class Login extends StatelessWidget {
               builder: (controller) =>  CustomTextFormAuth(
                   valid:  (val){
                   return validInput(val!, 5, 30, "password");
-                },
+               },
                 hinttext: "password_hint".tr,
                 labeltext: "password_label_text".tr,
                 iconData: Icons.lock_outlined,

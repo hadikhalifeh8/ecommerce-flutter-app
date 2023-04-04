@@ -3,6 +3,7 @@ import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/core/class/statusRequest.dart';
 import 'package:ecommerce/core/constant/Color.dart';
 import 'package:ecommerce/core/constant/imageasset.dart';
+import 'package:ecommerce/core/functions/validinput.dart';
 import 'package:ecommerce/view/widget/Cart/custombuttonCart.dart';
 import 'package:ecommerce/view/widget/Cart/customCartItemsList3.dart';
 import 'package:ecommerce/view/widget/Cart/custom_Buttom_NavigationBar_Cart4.dart';
@@ -34,6 +35,8 @@ class Cart extends StatelessWidget {
                            shipping: "500",
                            controllerCoupon: controller.controllertCoupon! ,
                            onApplyCoupon: (){controller.checkCoupon();},
+                          
+                    
                            
                            )),
 

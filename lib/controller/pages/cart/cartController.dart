@@ -233,12 +233,16 @@ deleteCart(String itemsid) async {
        Map<String, dynamic> dataCoupon = response['MapData'] ; // get the map
       couponModel = CouponModel.fromJson(dataCoupon);
       
+      
+      
       discountCoupon = int.parse(couponModel!.discount.toString());
        couponName = couponModel!.name.toString();
+      
 
       }
       else{ //failure ما في داعي ترجع  
         // statusRequest = StatusRequest.failure; // insert / update/ delete : لا يوجد تحديث / getdata : لا يوجد بيانات
+       // Get.defaultDialog(title: "Warning ", middleText: "Wrong data");
       discountCoupon =0;
       couponName = null;
       
