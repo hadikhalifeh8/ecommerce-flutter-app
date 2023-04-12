@@ -25,7 +25,11 @@ class CheckOut extends StatelessWidget {
             decoration:const BoxDecoration(
                        color: AppColor.secoundColor,
           ), 
-          child: const Text("CheckOut", style: TextStyle(color: Colors.white),textAlign: TextAlign.center,),),
+          child: MaterialButton(onPressed: (){
+            controller.checkout();
+          }, 
+          child:const Text("CheckOut", style: TextStyle(color: Colors.white),textAlign: TextAlign.center,))
+          ,),
 
           body: GetBuilder<CheckOutController>(builder: (controller) => 
 
@@ -35,58 +39,65 @@ class CheckOut extends StatelessWidget {
             
             child: 
           ListView(children: [
-            Text("Choose Payment Method", style: TextStyle(color: AppColor.secoundColor, fontWeight: FontWeight.bold,fontSize: 16.0),),
+           const Text("Choose Payment Method", style: TextStyle(color: AppColor.secoundColor, fontWeight: FontWeight.bold,fontSize: 16.0),),
           
           const SizedBox(height: 10.0,),
 
           InkWell(onTap: (){
-               controller.choosePaymentMethod("cach"); // cach=>value
+               controller.choosePaymentMethod("0"); // cach=>value
+               print("cach");
+
           },
             child: CardPaymentMethodButtonsCheckOut(
-              title: "Cach on Delivery", isActiveColor: controller.paymentMethod == "cach" ? true : false)
+              title: "Cach on Delivery", isActiveColor: controller.paymentMethod == "0" ? true : false)
             ),
 
 
            const SizedBox(height: 10.0,),
 
           InkWell(onTap: (){
-            controller.choosePaymentMethod("card"); // card=>val
+            controller.choosePaymentMethod("1"); // card=>val
+            print("card");
           },
             child: CardPaymentMethodButtonsCheckOut(
                            title: "Payment Method",
-                            isActiveColor:controller.paymentMethod =="card" ?true : false)),
+                            isActiveColor:controller.paymentMethod =="1" ?true : false)),
 
 
 
           const SizedBox(height: 20.0,),
-           Text("Choose Delivery Type", style: TextStyle(color: AppColor.secoundColor, fontWeight: FontWeight.bold,fontSize: 16.0),),
+          const Text("Choose Delivery Type", style: TextStyle(color: AppColor.secoundColor, fontWeight: FontWeight.bold,fontSize: 16.0),),
           
-SizedBox(height: 10.0,),
+const SizedBox(height: 10.0,),
 
        Row(children: [
+       
         InkWell(onTap: (){
-          controller.chooseDeliveryType("delivery_way");
+          controller.chooseDeliveryType("0");
+          print("delivery_way");
         },
               child:  CardDeliveryType(
                                        title: "delivery", 
-                      is_ActiveColor: controller.deliveryType =="delivery_way" ? true : false,
+                      is_ActiveColor: controller.deliveryType =="0" ? true : false,
                       imageName: AppImageAsset.deliveryman1,
                ),),
        
           const SizedBox(width: 5.0,) ,
 
           InkWell(onTap: (){
-            controller.chooseDeliveryType("mycar_way");
+            controller.chooseDeliveryType("1");
+          print("mycar_way");
+
           },
             child: CardDeliveryType(
                             title: "Drive Thru", 
-                   is_ActiveColor:controller.deliveryType == "mycar_way" ? true : false,
+                   is_ActiveColor:controller.deliveryType == "1" ? true : false,
              imageName: AppImageAsset.driveThru))
           
        ],),
 
        const SizedBox(height: 10.0,),
- if(controller.deliveryType =="delivery_way")
+ if(controller.deliveryType =="0")//delivery_way
       Column(
        
         
@@ -96,10 +107,16 @@ SizedBox(height: 10.0,),
 
          const Text("Shipping Address", style: TextStyle(color: AppColor.secoundColor, fontWeight: FontWeight.bold,fontSize: 16.0),),
        const SizedBox(height: 10.0,),
-
+  
+         
+              
+            
        Column(children: [
+         if(controller.dataAddress.length == 0)
+          Text("please add your address First", style: TextStyle(color: Color.fromARGB(255, 64, 0, 212), fontSize: 16.0),),
 
            ...List.generate( 
+          
                         controller.dataAddress.length,   
                         
                         (index) =>   InkWell(

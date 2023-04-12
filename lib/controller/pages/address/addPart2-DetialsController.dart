@@ -50,6 +50,7 @@ class AddAddressPartTwoController extends GetxController{
 
   // add city/street/nameofaddress 
      addAddress() async {
+         
       update();
     
      statusRequest = StatusRequest.loading;  // 1- loading (badda wa2et)
@@ -74,6 +75,7 @@ class AddAddressPartTwoController extends GetxController{
       }
       else{
         statusRequest = StatusRequest.failure; // insert / update/ delete : لا يوجد تحديث / getdata : لا يوجد بيانات
+      
       }
      }
      

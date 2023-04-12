@@ -7,7 +7,7 @@ import 'package:ecommerce/view/widget/Cart/custombuttonCart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CustomButtomNavigationBarCart extends StatelessWidget {
+class CustomButtomNavigationBarCart extends GetView<CartController> {
   final String price;
   final String discount;
   final double totalprice; 
@@ -135,11 +135,11 @@ class CustomButtomNavigationBarCart extends StatelessWidget {
          
          
          
+               const  SizedBox(height: 10.0,),
 
-       
+     //   CustomButtonCart(textbuttonName: "place Order", onPressed: (){Get.toNamed(AppRoute.checkout);},)
+        CustomButtonCart(textbuttonName: "place Order", onPressed: (){controller.goToCheckOutPage();},)
 
-        const  SizedBox(height: 10.0,),
-        CustomButtonCart(textbuttonName: "place Order", onPressed: (){Get.toNamed(AppRoute.checkout);},)
       ],),
     );
   }

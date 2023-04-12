@@ -4,7 +4,9 @@ import 'package:ecommerce/core/class/statusRequest.dart';
 import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/functions/handlingDataController.dart';
 import 'package:ecommerce/core/services/services.dart';
+import 'package:ecommerce/data/datasource/remote/address_data.dart';
 import 'package:ecommerce/data/datasource/remote/cart_data.dart';
+import 'package:ecommerce/data/model/addressModel.dart';
 import 'package:ecommerce/data/model/cartmodel.dart';
 import 'package:ecommerce/data/model/couponModel.dart';
 import 'package:ecommerce/data/model/itemsModel.dart';
@@ -21,6 +23,7 @@ class CartController extends GetxController
    CouponModel? couponModel;
    int? discountCoupon = 0; //discountCoupon متغير 
    String? couponName;     // nameCoupon متغير 
+   String? couponId;  //checkOut اللي خصو بالكوبون للصفحه اللي بعدها  id لحتى إبعت ال  
 
 
 CartData cartData = CartData(Get.find());
@@ -29,7 +32,8 @@ MyServices myServices = Get.find();
 
 
 
-
+  AddressData addressData = AddressData(Get.find());
+ List<AddressModel> dataAddress = []; //data اللي بعبي فيها ال 
 
 
 
@@ -41,7 +45,7 @@ List<CartModel> data = [];
 
 
 // barrat list [data]
-double totalSumOfPrice = 0.0;
+double totalSumOfPrice = 0.0; // price Order
 int totalcountitemsQNTY = 0;
  // int totalcountOfSpecificItems = 0;
 
@@ -215,8 +219,12 @@ deleteCart(String itemsid) async {
 
   checkCoupon() async
   {
+     // if(couponName == null) return Get.snackbar("warninig", "enter coupon code");
+
+
+     update();
         statusRequest = StatusRequest.loading;  // 1- loading (badda wa2et)
-          update();
+       //   update();
       
       var response = await cartData.checkCoupon(controllertCoupon!.text); //loading هون خلص 
 
@@ -229,14 +237,18 @@ deleteCart(String itemsid) async {
       //start backend
       if(response['status'] == "success")
       {
+         
   
        Map<String, dynamic> dataCoupon = response['MapData'] ; // get the map
       couponModel = CouponModel.fromJson(dataCoupon);
-      
+
+
       
       
       discountCoupon = int.parse(couponModel!.discount.toString());
        couponName = couponModel!.name.toString();
+        couponId = couponModel!.id.toString();
+
       
 
       }
@@ -245,7 +257,9 @@ deleteCart(String itemsid) async {
        // Get.defaultDialog(title: "Warning ", middleText: "Wrong data");
       discountCoupon =0;
       couponName = null;
-      
+       couponId = null;
+       Get.snackbar("warning", "this coupon not valid, try again");
+
       } 
       // endbakend
      }
@@ -258,10 +272,22 @@ deleteCart(String itemsid) async {
     return totalSumOfPrice - (totalSumOfPrice*discountCoupon! / 100);
   }
 
+  // place Order button
+  goToCheckOutPage(){
+    // Get.toNamed(AppRoute.checkout);
+     if(data.isEmpty){
+     return Get.snackbar("warning", "the cart is empty!");
+     }
+    
+          Get.toNamed(AppRoute.checkout, arguments: {
+      'couponId_' : couponId ?? '', // couponid = coupoonid ?? if that not have a coupon then coupoonid = 0 / null (as foreignkey)
+      'priceorder_' : totalSumOfPrice.toString(),
+      'discountCoupon_':discountCoupon.toString(),
 
+    });
+    
 
-
-
+  }
 
 
 

@@ -105,7 +105,7 @@ class CustomListItems extends GetView<ItemsControllerImp>{
                               fontFamily: "sans")),
 
                               if(itemsModel.discount! > 0)
-                              Text("${itemsModel.price}\$",style: TextStyle(decoration: TextDecoration.lineThrough, fontSize: 18)
+                              Text("${itemsModel.price}\$",style: TextStyle(decoration: TextDecoration.lineThrough, fontSize: 12, fontWeight: FontWeight.bold)
                               ),
                           
                       

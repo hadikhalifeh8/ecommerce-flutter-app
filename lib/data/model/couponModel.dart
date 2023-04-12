@@ -4,8 +4,8 @@ class CouponModel {
   int? count;
   int? discount;
   String? expiryDate;
-  Null? createdAt;
-  Null? updatedAt;
+  String? createdAt;
+  String? updatedAt;
 
   CouponModel(
       {this.id,

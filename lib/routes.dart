@@ -19,6 +19,7 @@ import 'package:ecommerce/view/screen/homescreen.dart';
 import 'package:ecommerce/view/screen/items.dart';
 import 'package:ecommerce/view/screen/language.dart';
 import 'package:ecommerce/view/screen/myFavorite.dart';
+import 'package:ecommerce/view/screen/orders/pendingOrders.dart';
 import 'package:ecommerce/view/screen/productDetails.dart';
 
 
@@ -72,10 +73,12 @@ List<GetPage<dynamic>>? routes =[
 
 
 
-  // checkout Page
+  // checkout AddOrder Page
  GetPage(name: AppRoute.checkout, page: () => const CheckOut()), 
   
 
+  // Archieve / Pending Orders Page
+ GetPage(name: AppRoute.pendingOrders, page: () => const OrdersPending()), 
 
 
    

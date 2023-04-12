@@ -33,14 +33,17 @@ class AppRoute{
        // addressView page
  static const String  addressView = "/viewAddress";
  static const String  addressadd = "/addAddress";
- static const String  addressaddpart2 = "/addressaddpart2";
+ static const String  addressaddpart2 = "/addressaddpart2"; 
 
 
 
-           // check Out page
+           // check Out page / Add order
  static const String  checkout = "/checkout";
 
 
+           // View Orders Pending / Archieve  page
+ static const String  pendingOrders  = "/pendingOrders";
+ static const String  archieveOrders = "/archieveOrders";
 
 
 

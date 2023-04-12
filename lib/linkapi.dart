@@ -71,16 +71,16 @@
 //      static  String deleteaddress = "http://comm-app.local/api/deleteaddress";
 
 
+//      // ==============================  checkout / order  ================================== // 
+//      static  String checkOut_ = "http://comm-app.local/api/add_order";
 
 
-
-    
       
 // }
 
 
 
-//////*************************************ip address**************************************** */
+// //////*************************************ip address**************************************** */
 
 
 class AppLink {
@@ -151,7 +151,11 @@ class AppLink {
       static  String deleteaddress = "http://192.168.0.109/laravel/E-commerceApp/public/api/delete_address";
       
 
+     //==============================  checkout / add order  ================================== // 
+      static  String checkOut_ = "http://192.168.0.109/laravel/E-commerceApp/public/api/add_order";
 
 
-      
+     //==============================  View orders (Archeive / Pending)  ================================== // 
+      static  String pendingOrder = "http://192.168.0.109/laravel/E-commerceApp/public/api/view_Pending_Order";
+
  }
