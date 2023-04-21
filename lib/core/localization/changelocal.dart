@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/constant/apptheme.dart';
+import 'package:ecommerce/core/functions/fbcmConfig.dart';
 import 'package:ecommerce/core/services/services.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -61,6 +62,9 @@ class LocalController extends GetxController {
   // أول ما أفتح الأبليكيشن لازم يفتح بلغه الموبايل 
   @override
   void onInit() {
+  // firebase Cloud messagin function when the app is open since can get a notification 
+    fbcmconfig();
+    requestPermissinNotification();
 
     //application بيطلبن أوا ما يفتح ال  Permisions كل ال 
     requestPermissionLocation();

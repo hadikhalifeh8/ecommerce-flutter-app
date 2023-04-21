@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:ecommerce/controller/pages/orders/pendingOrders_Controller.dart';
 import 'package:ecommerce/core/constant/Color.dart';
 import 'package:ecommerce/data/model/orderModel.dart';
+import 'package:jiffy/jiffy.dart';
 
 class OrdersPending extends StatelessWidget {
   const OrdersPending({Key? key}) : super(key: key);
@@ -61,7 +62,18 @@ class CardOrdersList extends GetView<OrdersPendingController> {
                      crossAxisAlignment: CrossAxisAlignment.start,
 
                       children: [
-                        Text("Order Number : ${listdata.id}", style: const TextStyle(fontSize: 18),),
+                        Row(children: [
+                           Text("Order Number : ${listdata.id}", style: const TextStyle(fontSize: 18),),
+                           Spacer(),
+                         
+                          // Text("${listdata.orderDate}"),
+                          //  Text("${Jiffy("2011-10-31", "yyyy-MM-dd").fromNow()}"),
+                           Text(Jiffy(listdata.orderDate, "yyyy-MM-dd").fromNow(),
+                           style: TextStyle(color: AppColor.primaryColor, fontWeight: FontWeight.bold),
+                           
+                           ),
+
+                        ],),
                       const Divider(),
 
                        //Text("Order Type : ${listdata.orderType}"),

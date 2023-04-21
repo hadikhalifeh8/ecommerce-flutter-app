@@ -67,12 +67,21 @@ class LoginControllerImp extends LoginController{
        
        if(response['data']['user_approve'] == "1")
        {
-           myServices.sharedPreferences.setString("id", response['data']['id'].toString());
+
+       myServices.sharedPreferences.setString("id", response['data']['id'].toString());
+
+    
+        String userid = myServices.sharedPreferences.getString("id").toString();
+
        myServices.sharedPreferences.setString("name", response['data']['name'].toString());
        myServices.sharedPreferences.setString("email", response['data']['email'].toString());
        myServices.sharedPreferences.setString("phone", response['data']['phone_no'].toString());
 
        myServices.sharedPreferences.setString("step", "2");
+
+    FirebaseMessaging.instance.subscribeToTopic("users"); // لكل المستخدمين
+    FirebaseMessaging.instance.subscribeToTopic("users$userid"); // خاص Topic إلو  user  كل // firebase topic for specific user
+
 
        Get.offNamed(AppRoute.homepage);
        }
@@ -115,10 +124,10 @@ class LoginControllerImp extends LoginController{
   void onInit() {
     // send notification via firebase
  
-  //  FirebaseMessaging.instance.getToken().then((value)  {
-  //     print(value);
-  //     String? token = value;
-  //  });
+    FirebaseMessaging.instance.getToken().then((value)  {
+       print("this is a value an Token code for firebase $value");
+       String? token = value;
+    });
 
     email    = TextEditingController();
     password = TextEditingController();

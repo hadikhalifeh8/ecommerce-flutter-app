@@ -4,6 +4,7 @@ import 'package:ecommerce/core/functions/handlingDataController.dart';
 import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/data/datasource/remote/home_data.dart';
 import 'package:ecommerce/data/model/itemsModel.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -69,6 +70,8 @@ lang = myServices.sharedPreferences.getString("lang");
 
 @override
   void onInit() {
+    // FirebaseMessaging.instance.subscribeToTopic('users');  // b7ota bl login
+    
     getdata();
     search = TextEditingController();
     initialData();

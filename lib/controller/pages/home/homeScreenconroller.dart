@@ -1,5 +1,6 @@
 
 import 'package:ecommerce/view/screen/home.dart';
+import 'package:ecommerce/view/screen/notification/notification.dart';
 import 'package:ecommerce/view/screen/settings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +20,10 @@ class HomeScreenconrollerImp extends HomeScreenconroller{
 List<Widget> listPage =[
  const Home(),
 
- Column(children: const [
-  Center(child: Text("Settings")),
- ],),
+//  Column(children: const [
+//   Center(child: Text("notification")),
+//  ],),
+ const NotificationView(),
 
  Column(children: const [
   Center(child: Text("profile")),

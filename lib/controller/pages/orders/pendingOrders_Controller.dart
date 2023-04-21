@@ -61,8 +61,9 @@ printOrderStatus(String val){
 
     getallPendingOrders() async{
     data.clear(); //القديم select لحتى يمحي ال 
-                    statusRequest = StatusRequest.loading;  // 1- loading (badda wa2et)
-      //var response = await itemsData.getData(category_id ,myServices.sharedPreferences.getString("id")); //loading هون خلص 
+    statusRequest = StatusRequest.loading;  // 1- loading (badda wa2et)
+      update();
+
       var response = await ordersPendingData.getData(myServices.sharedPreferences.getString("id")!); //loading هون خلص 
 
      print("***************##############************* Controler $response ");
@@ -82,6 +83,13 @@ printOrderStatus(String val){
       } 
      }
       update(); // Refresh 
+  }
+
+
+
+  refreshOrder()
+  {
+    getallPendingOrders();
   }
 
   @override

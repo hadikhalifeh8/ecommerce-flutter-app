@@ -75,6 +75,15 @@
 //      static  String checkOut_ = "http://comm-app.local/api/add_order";
 
 
+//      //==============================  View orders (Archeive / Pending)  ================================== // 
+//       static  String pendingOrder = "http://comm-app.local/api/view_Pending_Order";
+
+
+// //==============================  Notifications  ================================== // 
+//       static  String getAllnotification = "http://comm-app.local/api/get_Notification";
+
+
+
       
 // }
 
@@ -157,5 +166,10 @@ class AppLink {
 
      //==============================  View orders (Archeive / Pending)  ================================== // 
       static  String pendingOrder = "http://192.168.0.109/laravel/E-commerceApp/public/api/view_Pending_Order";
+
+
+//==============================  Notifications  ================================== // 
+      static  String getAllnotification = "http://192.168.0.109/laravel/E-commerceApp/public/api/get_Notification";
+
 
  }
