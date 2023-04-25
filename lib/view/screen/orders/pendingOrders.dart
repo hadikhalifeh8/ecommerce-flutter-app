@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:ecommerce/core/class/handlingdataview.dart';
+import 'package:ecommerce/core/constant/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -95,7 +96,15 @@ class CardOrdersList extends GetView<OrdersPendingController> {
                          children: [
                            Text("total Price : ${listdata.totalPrice}\$", style:TextStyle(color: AppColor.primaryColor)),
                            Spacer(),
-                           MaterialButton(color: AppColor.thirdColor, onPressed: (){} , child: Text("Details", style: TextStyle(color: AppColor.primaryColor),),)
+                           MaterialButton(color: AppColor.thirdColor, 
+                           onPressed: (){
+                            //لجيب المعلومات function أحسن ما إرجع إعمل 
+                            // detailsOrder_controller
+
+                                    Get.toNamed(AppRoute.detailsOrder, 
+                                     arguments: {"Model_Of_Order_list" : listdata});
+                           } , 
+                           child: Text("Details", style: TextStyle(color: AppColor.primaryColor),),)
                          ],
                        ),
 

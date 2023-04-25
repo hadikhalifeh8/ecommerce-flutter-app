@@ -164,8 +164,10 @@ class AppLink {
       static  String checkOut_ = "http://192.168.0.109/laravel/E-commerceApp/public/api/add_order";
 
 
-     //==============================  View orders (Archeive / Pending)  ================================== // 
+     //==============================  View orders (Archeive / Pending/ Details)  ================================== // 
       static  String pendingOrder = "http://192.168.0.109/laravel/E-commerceApp/public/api/view_Pending_Order";
+      static  String detailsOrder = "http://192.168.0.109/laravel/E-commerceApp/public/api/details_Order";
+
 
 
 //==============================  Notifications  ================================== // 

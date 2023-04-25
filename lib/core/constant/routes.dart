@@ -41,9 +41,13 @@ class AppRoute{
  static const String  checkout = "/checkout";
 
 
-           // View Orders Pending / Archieve  page
+           // View Orders Pending / Archieve /details page
  static const String  pendingOrders  = "/pendingOrders";
  static const String  archieveOrders = "/archieveOrders";
+ static const String  detailsOrder = "/detailsOrder";
+
+
+
 
 
 

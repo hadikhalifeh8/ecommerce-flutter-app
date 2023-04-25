@@ -13,6 +13,7 @@ class OrdersModel {
   String? orderDate;
   String? createdAt;
   String? updatedAt;
+  AddressRltn? addressRltn;
 
   OrdersModel(
       {this.id,
@@ -28,7 +29,8 @@ class OrdersModel {
       this.status,
       this.orderDate,
       this.createdAt,
-      this.updatedAt});
+      this.updatedAt,
+      this.addressRltn});
 
   OrdersModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -45,6 +47,9 @@ class OrdersModel {
     orderDate = json['order_date'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
+    addressRltn = json['address_rltn'] != null
+        ? new AddressRltn.fromJson(json['address_rltn'])
+        : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -61,6 +66,58 @@ class OrdersModel {
     data['coupon_discount'] = this.couponDiscount;
     data['status'] = this.status;
     data['order_date'] = this.orderDate;
+    data['created_at'] = this.createdAt;
+    data['updated_at'] = this.updatedAt;
+    if (this.addressRltn != null) {
+      data['address_rltn'] = this.addressRltn!.toJson();
+    }
+    return data;
+  }
+}
+
+class AddressRltn {
+  int? id;
+  int? userId;
+  String? addressName;
+  String? city;
+  String? street;
+  double? adressLatitude;
+  double? adressLongitude;
+  String? createdAt;
+  String? updatedAt;
+
+  AddressRltn(
+      {this.id,
+      this.userId,
+      this.addressName,
+      this.city,
+      this.street,
+      this.adressLatitude,
+      this.adressLongitude,
+      this.createdAt,
+      this.updatedAt});
+
+  AddressRltn.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    userId = json['user_id'];
+    addressName = json['address_name'];
+    city = json['city'];
+    street = json['street'];
+    adressLatitude = json['adress_latitude'];
+    adressLongitude = json['adress_longitude'];
+    createdAt = json['created_at'];
+    updatedAt = json['updated_at'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['user_id'] = this.userId;
+    data['address_name'] = this.addressName;
+    data['city'] = this.city;
+    data['street'] = this.street;
+    data['adress_latitude'] = this.adressLatitude;
+    data['adress_longitude'] = this.adressLongitude;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
     return data;
