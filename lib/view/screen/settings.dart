@@ -74,6 +74,8 @@ class Settings extends StatelessWidget {
 
                  ListTile(
                onTap: () {
+                Get.toNamed(AppRoute.archieveOrders);
+
                 
               },
               

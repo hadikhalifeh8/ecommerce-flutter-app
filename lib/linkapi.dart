@@ -170,6 +170,8 @@ class AppLink {
       static  String pendingOrder = "http://192.168.0.109/laravel/E-commerceApp/public/api/view_Pending_Order";
       static  String detailsOrder = "http://192.168.0.109/laravel/E-commerceApp/public/api/details_Order";
       static  String deleteOrder = "http://192.168.0.109/laravel/E-commerceApp/public/api/delete_Order";
+      static  String archiveOrder = "http://192.168.0.109/laravel/E-commerceApp/public/api/archive_Order";
+
 
 
 

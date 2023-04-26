@@ -48,8 +48,10 @@ printOrderStatus(String val){
          return "The Order is being Prepared"; // تجهيز
        
        }else if(val == "2"){
-         return "On the Way"; // على الطريق
+         return "Ready To picked up by Delivery Man"; //على الطريق delivery صارت الطلبيه مع عامل ال 
        
+       }else if(val == "3"){
+         return "On the Way"; // على الطريق
        }else{
         return "Archeive"; // بالأرشيف
        }
@@ -98,12 +100,11 @@ printOrderStatus(String val){
 
   
 deleteOrder(String orderid) async{
-    data.clear(); //القديم select لحتى يمحي ال 
-    statusRequest = StatusRequest.loading;  // 1- loading (badda wa2et)
+    data.clear(); 
+    statusRequest = StatusRequest.loading;  
       update();
 
-      var response = await ordersPendingData.deleteData(orderid); //loading هون خلص 
-
+      var response = await ordersPendingData.deleteData(orderid); 
      print("***************##############************* Controler $response ");
     // print(category_id);
      statusRequest = handlingData(response); // get data / or stausRquest (success /serverfailure / connection  failed ... /) 
