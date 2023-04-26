@@ -104,7 +104,21 @@ class CardOrdersList extends GetView<OrdersPendingController> {
                                     Get.toNamed(AppRoute.detailsOrder, 
                                      arguments: {"Model_Of_Order_list" : listdata});
                            } , 
-                           child: Text("Details", style: TextStyle(color: AppColor.primaryColor),),)
+                           child: Text("Details", style: TextStyle(color: AppColor.primaryColor),),
+                           ),
+                       
+                         
+                         const SizedBox(width: 10.0,),
+                         // if order status => Await Approve then show delete buton else hide
+                         
+                         if(listdata.status.toString() == "0")
+                                MaterialButton(color: AppColor.thirdColor, 
+                           onPressed: (){
+                                        controller.deleteOrder(listdata.id.toString());
+                           } , 
+                           child: Text("Delete", style: TextStyle(color: AppColor.primaryColor),),
+                           ),
+                         
                          ],
                        ),
 

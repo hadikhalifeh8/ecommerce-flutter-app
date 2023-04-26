@@ -11,4 +11,12 @@ class OrdersPendingData {
       return response.fold((l) => l, (r) => r);
   }
 
+
+
+  // delete the order where status =>Await Approve (Only) 
+   deleteData(String orderid) async {
+   var response = await crud.postData('${AppLink.deleteOrder}/$orderid', {});
+      return response.fold((l) => l, (r) => r);
+  }
+
 }
