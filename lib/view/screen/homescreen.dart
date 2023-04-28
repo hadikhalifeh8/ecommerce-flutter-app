@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:ecommerce/controller/pages/home/homeScreenconroller.dart';
 import 'package:ecommerce/controller/pages/home/productDetailscontroller.dart';
 import 'package:ecommerce/core/constant/Color.dart';
@@ -33,8 +35,31 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar:const CustomButtonAppBarHome(),
    
 
-      body: 
-      controller.listPage.elementAt(controller.currentpage),
+      body: // add Dialog Exit for App
+    //  controller.listPage.elementAt(controller.currentpage),
+    WillPopScope(child: controller.listPage.elementAt(controller.currentpage), 
+    onWillPop: (){
+
+      Get.defaultDialog(
+                         title: "Warning",
+                         titleStyle: const TextStyle(fontWeight: FontWeight.bold, color: AppColor.primaryColor),
+
+                         middleText: "Are You Sure Exit App",
+                         middleTextStyle: const TextStyle(fontSize: 16.0),
+
+
+                         onConfirm: (){exit(0);},
+                         confirmTextColor: AppColor.thirdColor,
+
+                         onCancel: (){},
+                         cancelTextColor: AppColor.thirdColor,
+
+                          buttonColor: AppColor.secoundColor,
+
+      
+      );
+      return Future.value(false);
+    })
     ));
   }
 }
