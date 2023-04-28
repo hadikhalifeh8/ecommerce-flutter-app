@@ -48,6 +48,11 @@ class AppRoute{
 
 
 
+//ButtonNavigationBar عشانها بال  routes ما إلهاش داعي تكون بألب ال 
+           // offers page
+ //static const String  offers = "/offers";
+
+
 
 
 

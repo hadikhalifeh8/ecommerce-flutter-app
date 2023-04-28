@@ -79,6 +79,8 @@
 //       static  String pendingOrder = "http://comm-app.local/api/view_Pending_Order";
 //      static  String detailsOrder = http://comm-app.local/api/details_Order";
 //      static  String deleteOrder = "http://comm-app.local/api/delete_Order";
+//      static  String archiveOrder = "http://comm-app.local/api/archive_Order";
+
 
 
 //      //==============================  Notifications  ================================== // 
@@ -175,9 +177,11 @@ class AppLink {
 
 
 
-
      //==============================  Notifications  ================================== // 
       static  String getAllnotification = "http://192.168.0.109/laravel/E-commerceApp/public/api/get_Notification";
 
+
+     //==============================  Offers  ================================== // 
+      static  String offers = "http://192.168.0.109/laravel/E-commerceApp/public/api/offers";
 
  }

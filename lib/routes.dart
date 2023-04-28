@@ -19,6 +19,7 @@ import 'package:ecommerce/view/screen/homescreen.dart';
 import 'package:ecommerce/view/screen/items.dart';
 import 'package:ecommerce/view/screen/language.dart';
 import 'package:ecommerce/view/screen/myFavorite.dart';
+import 'package:ecommerce/view/screen/offers.dart';
 import 'package:ecommerce/view/screen/orders/archeiveOrders.dart';
 import 'package:ecommerce/view/screen/orders/details.dart';
 import 'package:ecommerce/view/screen/orders/pendingOrders.dart';
@@ -85,8 +86,9 @@ List<GetPage<dynamic>>? routes =[
  GetPage(name: AppRoute.archieveOrders, page: () => const OrdersArchive()), 
 
 
-
-
+//ButtonNavigationBar عشانها بال  routes ما إلهاش داعي تكون بألب ال 
+  // offers Page
+ //GetPage(name: AppRoute.offers, page: () => const OffersView()), 
    
 
 
