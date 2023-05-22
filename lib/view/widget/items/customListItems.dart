@@ -60,33 +60,36 @@ class CustomListItems extends GetView<ItemsControllerImp>{
                         itemsModel.categoryRltn!.nameEn!),
                     textAlign: TextAlign.center,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        "Rating 3.5",
-                        textAlign: TextAlign.center,
-                      ),
-                      //  Icon(Icons.star),
-                      Container(
-                        // color: Colors.red,
-                        height: 25,
-                        alignment: Alignment.bottomCenter,
 
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            ...List.generate(
-                                5,
-                                (index) => const Icon(
-                                      Icons.star,
-                                      size: 15,
-                                    ))
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
+ // start rating
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     const Text(
+                  //       "Rating 3.5",
+                  //       textAlign: TextAlign.center,
+                  //     ),
+                  //     //  Icon(Icons.star),
+                  //     Container(
+                  //       // color: Colors.red,
+                  //       height: 25,
+                  //       alignment: Alignment.bottomCenter,
+
+                  //       child: Row(
+                  //         mainAxisAlignment: MainAxisAlignment.center,
+                  //         children: [
+                  //           ...List.generate(
+                  //               5,
+                  //               (index) => const Icon(
+                  //                     Icons.star,
+                  //                     size: 15,
+                  //                   ))
+                  //         ],
+                  //       ),
+                  //     )
+                  //   ],
+                  // ),
+ // end rating
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

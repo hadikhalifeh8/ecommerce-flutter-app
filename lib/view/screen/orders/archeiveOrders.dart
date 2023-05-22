@@ -2,6 +2,7 @@
 import 'package:ecommerce/controller/pages/orders/archieveOrders_Controller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/core/constant/routes.dart';
+import 'package:ecommerce/view/widget/orders/rating_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -106,6 +107,22 @@ class CardOrdersList extends GetView<OrdersArchiveController> {
                                      arguments: {"Model_Of_Order_list" : listdata});
                            } , 
                            child: Text("Details", style: TextStyle(color: AppColor.primaryColor),),
+                           ),
+
+
+                             Spacer(),
+
+
+ // if rating == 0 show the rate button else hide 
+
+ if(listdata.orderRating == 0)
+                           MaterialButton(color: AppColor.thirdColor, 
+                           onPressed: (){
+                            // from rating_dialog.dart
+                            // (comment, rate, orderid)
+                                 showDialogRaing(context, listdata.id.toString());
+                           } , 
+                           child: Text("Rate", style: TextStyle(color: AppColor.primaryColor),),
                            ),
                        
                          

@@ -11,4 +11,15 @@ class ArchiveOrderData {
       return response.fold((l) => l, (r) => r);
   }
 
+
+
+    // rating(String orderid, String rating, String comment) async {
+    rating(String orderid, String rating, String comment) async {
+   var response = await crud.postData('${AppLink.rating}/$orderid', {
+    'order_rating': rating, 
+    'order_note_rating': comment,
+   });
+      return response.fold((l) => l, (r) => r);
+  }
+
 }

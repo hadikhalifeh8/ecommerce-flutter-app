@@ -13,6 +13,8 @@ class OrdersModel {
   String? orderDate;
   String? createdAt;
   String? updatedAt;
+  int? orderRating;
+  String? orderNoteRating;
   AddressRltn? addressRltn;
 
   OrdersModel(
@@ -30,6 +32,8 @@ class OrdersModel {
       this.orderDate,
       this.createdAt,
       this.updatedAt,
+       this.orderRating,
+      this.orderNoteRating,
       this.addressRltn});
 
   OrdersModel.fromJson(Map<String, dynamic> json) {
@@ -47,6 +51,8 @@ class OrdersModel {
     orderDate = json['order_date'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
+    orderRating = json['order_rating'];
+    orderNoteRating = json['order_note_rating'];
     addressRltn = json['address_rltn'] != null
         ? new AddressRltn.fromJson(json['address_rltn'])
         : null;
@@ -68,6 +74,8 @@ class OrdersModel {
     data['order_date'] = this.orderDate;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
+    data['order_rating'] = this.orderRating;
+    data['order_note_rating'] = this.orderNoteRating;
     if (this.addressRltn != null) {
       data['address_rltn'] = this.addressRltn!.toJson();
     }

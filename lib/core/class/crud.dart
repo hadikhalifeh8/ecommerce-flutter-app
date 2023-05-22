@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 
   Future<Either<StatusRequest, Map>> postData(String linkurl ,Map data) async {
     
-     // try{
+      try{
       if (await checkInternet()) {
         var response = await http.post(Uri.parse(linkurl), body: data);
           print(response.statusCode) ; 
@@ -26,9 +26,9 @@ import 'package:http/http.dart' as http;
         return const Left(StatusRequest.offlinefailure);
       } 
      
-  // } catch(_){
-  //    return const Left(StatusRequest.serverException);
-  // }
+  } catch(_){
+     return const Left(StatusRequest.serverException);
+  }
 
 }
   }

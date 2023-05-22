@@ -99,6 +99,36 @@ printOrderStatus(String val){
 
 
 
+// submit for rating orders
+  submitRating(String orderid,double rating, String comment) async {
+         data.clear(); //القديم select لحتى يمحي ال 
+    statusRequest = StatusRequest.loading;  // 1- loading (badda wa2et)
+      update();
+
+      var response = await archiveOrderData.rating(orderid, rating.toString(), comment); //loading هون خلص 
+
+     print("***************##############************* Controler $response ");
+    // print(category_id);
+     statusRequest = handlingData(response); // get data / or stausRquest (success /serverfailure / connection  failed ... /) 
+
+     if(StatusRequest.success == statusRequest)
+     {
+      if(response['status'] == "success")
+      {
+         print("successs");
+         getallArchiveOrders();
+
+      }
+      else{
+        statusRequest = StatusRequest.failure; // insert / update/ delete : لا يوجد تحديث / getdata : لا يوجد بيانات
+      } 
+     }
+      update(); // Refresh 
+  }
+
+
+
+
   
 
 

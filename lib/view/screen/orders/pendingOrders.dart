@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/core/constant/routes.dart';
+import 'package:ecommerce/view/widget/orders/rating_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -106,6 +107,8 @@ class CardOrdersList extends GetView<OrdersPendingController> {
                            } , 
                            child: Text("Details", style: TextStyle(color: AppColor.primaryColor),),
                            ),
+
+                         
                        
                          
                          const SizedBox(width: 10.0,),
