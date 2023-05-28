@@ -11,6 +11,11 @@ class HomeData {
       return response.fold((l) => l, (r) => r);
   }
 
+  //   topsellingData() async {
+  //  var response = await crud.postData(AppLink.topselling ,{});
+  //     return response.fold((l) => l, (r) => r);
+  // }
+
 
     searchData(String search) async {
    var response = await crud.postData(AppLink.search,{

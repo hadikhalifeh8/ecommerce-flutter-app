@@ -83,7 +83,7 @@ class Home extends StatelessWidget {
   //  const SizedBox(height: 10.0), 
     
     // start title item
-       CustomTitleHome(title: "Product For You",),
+       CustomTitleHome(title: "Top Selling",),
     // end title item
    //  SizedBox(height: 10.0,),
        // start items image

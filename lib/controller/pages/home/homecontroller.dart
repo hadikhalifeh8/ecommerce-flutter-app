@@ -12,7 +12,7 @@ abstract class HomeController extends GetxController{
 initialData();
 getdata();
 goToItems(List categories, int selectedCategory, String category_id); // latop / mobile ...  // by favorites
-
+//topsellings();
 String? lang;
 }
 
@@ -31,8 +31,8 @@ String? categoryid;
   HomeData homeData = HomeData(Get.find());
  // List data = [];
   List categories = [];
-  List items = [];
-  // List favorites =[];
+  // List items = [];
+   List countitems =[];
 
   
   late StatusRequest statusRequest;
@@ -92,7 +92,7 @@ lang = myServices.sharedPreferences.getString("lang");
       if(response['status'] == "success")
       {
          categories.addAll(response['categories']);
-         items.addAll(response['items']);
+         countitems.addAll(response['items']);
 
       }
       else{
@@ -103,6 +103,31 @@ lang = myServices.sharedPreferences.getString("lang");
       update(); // Refresh 
  
   }
+
+  //////////////////////***********top Selling*********** */ 
+  //   @override
+  // topsellings() async{
+  //        statusRequest = StatusRequest.loading;  // 1- loading (badda wa2et)
+  //    var response = await homeData.topsellingData(); //loading هون خلص 
+
+  //    print("***************##############************* Controler $response ");
+  //    statusRequest = handlingData(response); // get data / or stausRquest (success /serverfailure / connection  failed ... /) 
+
+  //    if(StatusRequest.success == statusRequest)
+  //    {
+  //     if(response['status'] == "success")
+  //     {
+  //        countitems.addAll(response['data']);
+  //       // items.addAll(response['items']);
+
+  //     }
+  //     else{
+  //       statusRequest = StatusRequest.failure; // insert / update/ delete : لا يوجد تحديث / getdata : لا يوجد بيانات
+  //     }
+  //    }
+     
+  //     update(); // Refresh 
+  // }
  
    
   searchData() async {
@@ -144,6 +169,8 @@ lang = myServices.sharedPreferences.getString("lang");
    });
   
   }
+  
+
   // categories container 
 
 }

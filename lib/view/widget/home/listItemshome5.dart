@@ -1,4 +1,5 @@
 import 'package:ecommerce/controller/pages/home/homecontroller.dart';
+import 'package:ecommerce/data/model/cartmodel.dart';
 import 'package:ecommerce/data/model/itemsModel.dart';
 import 'package:ecommerce/linkapi.dart';
 import 'package:flutter/material.dart';
@@ -12,10 +13,10 @@ import 'package:get/get.dart';
   Widget build(BuildContext context) {
     return      Container(height: 140.0,
      child: ListView.builder(
-      itemCount: controller.items.length,
+      itemCount: controller.countitems.length,
       scrollDirection: Axis.horizontal,
       itemBuilder: (context,index){
-        return Items(itemsModel: ItemsModel.fromJson(controller.items[index]));
+        return Items(cartsModel: CartModel.fromJson(controller.countitems[index]));
       }
      ),
      
@@ -24,9 +25,12 @@ import 'package:get/get.dart';
 }
 
 class Items extends StatelessWidget {
-  final ItemsModel itemsModel;
+  // final ItemsModel itemsModel;
+   final CartModel cartsModel;
+
+
   
-  const Items({Key? key, required this.itemsModel}) : super(key: key);
+  const Items({Key? key, required this.cartsModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +39,7 @@ class Items extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
             margin: EdgeInsets.symmetric(horizontal: 10.0),
 
-            child: Image.network("${AppLink.imageItems}/${itemsModel.image}", 
+            child: Image.network("${AppLink.imageItems}/${cartsModel.itemRltn!.image.toString()}", 
             height: 100.0,width: 150.0,fit: BoxFit.fill,),
             ),
 
@@ -52,7 +56,7 @@ class Items extends StatelessWidget {
 
               Positioned(left: 10.0,
                 child: 
-              Text("${itemsModel.nameEn}",style: const TextStyle(color: Colors.white, fontSize: 17.0, fontWeight: FontWeight.bold),))
+              Text("${cartsModel.itemRltn!.nameEn}",style: const TextStyle(color: Colors.white, fontSize: 17.0, fontWeight: FontWeight.bold),))
 
         ],);
   }
